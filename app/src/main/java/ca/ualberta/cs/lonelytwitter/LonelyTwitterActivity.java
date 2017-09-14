@@ -18,12 +18,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import ca.ualberta.cs.lonelytwitter.classes.HappyMood;
+import ca.ualberta.cs.lonelytwitter.classes.Mood;
+
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
-	
+	private ArrayList<Mood> tweetMoods = new ArrayList<Mood>();
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -92,4 +95,8 @@ public class LonelyTwitterActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
-}
+
+	private void addMood(Mood mood){
+		tweetMoods.add(mood);
+	}
+	}

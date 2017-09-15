@@ -11,7 +11,7 @@ public abstract class Mood {
     private Date date;
 
     public Mood(){
-        date = new Date();
+        date = new Date(System.currentTimeMillis());
     }
 
     public Mood(Date newDate){
@@ -26,6 +26,6 @@ public abstract class Mood {
         date = newDate;
     }
 
-    abstract String moodDependentFormat();
+    public abstract String moodDependentFormat();
 }
 

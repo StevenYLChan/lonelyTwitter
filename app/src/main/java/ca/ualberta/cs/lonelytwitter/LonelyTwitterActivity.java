@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import ca.ualberta.cs.lonelytwitter.classes.HappyMood;
+import ca.ualberta.cs.lonelytwitter.classes.SadMood;
 import ca.ualberta.cs.lonelytwitter.classes.Mood;
 
 public class LonelyTwitterActivity extends Activity {
@@ -97,6 +98,16 @@ public class LonelyTwitterActivity extends Activity {
 	}
 
 	private void addMood(Mood mood){
-		tweetMoods.add(mood);
+		if(!tweetMoods.contains(mood)){
+			tweetMoods.add(mood);
+		}
+	}
+
+	public ArrayList<Mood> getMoods(){
+		return tweetMoods;
+	}
+
+	public void setMoods(ArrayList<Mood> newMoods){
+		tweetMoods = newMoods;
 	}
 	}

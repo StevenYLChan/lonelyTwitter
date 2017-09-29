@@ -1,3 +1,13 @@
+/*
+ * Class Name: LonelyTwitterActivity
+ *
+ * Version: Version 1.0
+ *
+ * Date: September 28, 2017
+ *
+ * Copyright (c) Steven Chan, CMPUT301, University of Alberta. All Rights Reserved. You may use, distribute, or modify this code under terms and conditions of the Code of Students Behavior at University of Alberta
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -29,6 +39,17 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * Represents the LonelyTwitterActivity
+ *
+ * @author Steven Chan
+ * @version 1.0
+ * @see Tweet
+ * @see NormalTweet
+ * @see ImportantTweet
+ * @since 1.0
+ */
+
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file4.sav";
@@ -37,8 +58,12 @@ public class LonelyTwitterActivity extends Activity {
 
 	private ArrayList<Tweet> tweetList;
 	private ArrayAdapter<Tweet> adapter;
-	
-	/** Called when the activity is first created. */
+
+    /**
+     * Called when the activity is first created.
+     * @param savedInstanceState savedInstanceState
+     */
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -76,6 +101,10 @@ public class LonelyTwitterActivity extends Activity {
         });
 	}
 
+    /**
+     * Called on application start
+     */
+
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -85,6 +114,12 @@ public class LonelyTwitterActivity extends Activity {
 				R.layout.list_item, tweetList);
 		oldTweetsList.setAdapter(adapter);
 	}
+
+    /**
+     * Load existing save data from file
+     *
+     * @throws RuntimeException in IOException cases
+     */
 
 	private void loadFromFile() {
 		try {
@@ -105,7 +140,13 @@ public class LonelyTwitterActivity extends Activity {
 		}
 
 	}
-	
+
+    /**
+     * Saves data to file
+     *
+     * @throws RuntimeException in FileNotFoundException cases and IOException cases
+     */
+
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
@@ -125,6 +166,10 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException();
 		}
 	}
+
+    /**
+     * Clears the file of its data
+     */
 
 	private void clearDisk(){
 			File filesDirectory = getFilesDir();
